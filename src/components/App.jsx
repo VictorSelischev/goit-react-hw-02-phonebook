@@ -13,6 +13,13 @@ class App extends Component {
     ],
   };
 
+  formSubmitHandler = data => {
+    console.log(data);
+    this.setState(prevState =>  ({
+      contacts: [...prevState.contacts, data] }
+    ));
+  }
+
   render() {
     const { contacts, name } = this.state;
     return (
@@ -29,7 +36,7 @@ class App extends Component {
         }}
       >
         <Section title={'Phonbook'}>
-          <FormPhonbook />
+          <FormPhonbook onSubmitProp={this.formSubmitHandler} />
         </Section>
         {/* <Section title={'Contacts'}>
           <Contacts contacts={contacts} />
