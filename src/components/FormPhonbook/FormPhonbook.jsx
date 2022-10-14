@@ -16,11 +16,11 @@ class FormPhonbook extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
 
-    const contact = {};
-    contact.id = nanoid();
-    contact.name = this.state.name;
-    contact.number = this.state.number;
-    this.props.onSubmitProp(contact);
+    // const contact = {};
+    // contact.id = nanoid();
+    // contact.name = this.state.name;
+    // contact.number = this.state.number;
+    this.props.onSubmitProp({id: nanoid(), ...this.state});
 
     this.reset();
   };
