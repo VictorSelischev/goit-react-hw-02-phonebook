@@ -21,7 +21,7 @@ class App extends Component {
   }
 
   render() {
-    const { contacts, name } = this.state;
+    const { contacts } = this.state;
     return (
       <div
         style={{
@@ -35,7 +35,7 @@ class App extends Component {
           backgroundColor: '#c0ddff',
         }}
       >
-        <Section title={'Phonbook'}>
+        <Section title={'Phonebook'}>
           <FormPhonbook onSubmitProp={this.formSubmitHandler} />
         </Section>
         <Section title={'Contacts'}>
