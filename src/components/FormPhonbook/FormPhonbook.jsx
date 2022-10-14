@@ -3,8 +3,6 @@ import { nanoid } from 'nanoid';
 import { Component } from 'react';
 
 class FormPhonbook extends Component {
-  contactInputId = nanoid();
-  // nameInputId = nanoid();
 
   state = {
     name: '',
@@ -18,7 +16,7 @@ class FormPhonbook extends Component {
     evt.preventDefault();
 
     const contact = {};
-    contact.id = this.contactInputId;
+    contact.id = nanoid();
     contact.name = this.state.name;
     this.props.onSubmitProp(contact);
 
