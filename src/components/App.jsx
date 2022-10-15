@@ -1,7 +1,7 @@
 import { Component } from 'react';
-import FormPhonbook from './FormPhonbook/FormPhonbook';
+import {ContactForm} from './ContactForm/ContactForm';
 import { Section } from './Section/Section';
-import { ContactsList } from './Contacts/Contacts';
+import { ContactsList } from './Contacts/ContactsList';
 import { Filter } from './Filter/Filter';
 
 class App extends Component {
@@ -22,9 +22,9 @@ class App extends Component {
     }));
   };
 
-  deleteContact = (contactId) => {
-    this.setState(prevState => )
-  }
+  // deleteContact = (contactId) => {
+  //   this.setState(prevState => )
+  // }
 
   handleChangeFilter = evt => {
     console.log(this.state.filter);
@@ -62,7 +62,7 @@ class App extends Component {
         }}
       >
         <Section title={'Phonebook'}>
-          <FormPhonbook onSubmitProp={this.addContact} />
+          <ContactForm onSubmitProp={this.addContact} />
         </Section>
         <Section title={'Contacts'}>
           <Filter filter={filter} changeFilter={this.handleChangeFilter} />

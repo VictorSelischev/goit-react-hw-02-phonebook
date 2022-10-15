@@ -1,8 +1,8 @@
-import css from './FormPhonbook.module.css';
+import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
 
-class FormPhonbook extends Component {
+class ContactForm extends Component {
   state = {
     name: '',
     number: '',
@@ -64,7 +64,7 @@ class FormPhonbook extends Component {
   }
 }
 
-export default FormPhonbook;
+export {ContactForm};
 
 // export const FormPhonbook = ({ handleSubmit, handleChange, name }) => {
 //   return (
