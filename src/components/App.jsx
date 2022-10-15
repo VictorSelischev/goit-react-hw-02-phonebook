@@ -15,20 +15,39 @@ class App extends Component {
     filter: '',
   };
 
-  formSubmitHandler = data => {
+  addContact = data => {
     console.log(data);
-    this.setState(prevState =>  ({
-      contacts: [data, ...prevState.contacts] }
-    ));
+    this.setState(prevState => ({
+      contacts: [data, ...prevState.contacts],
+    }));
+  };
+
+  deleteContact = (contactId) => {
+    this.setState(prevState => )
   }
 
   handleChangeFilter = evt => {
     console.log(this.state.filter);
-    this.setState({filter: evt.target.value});
-  }
+    this.setState({ filter: evt.target.value });
+  };
+
+  getVisibleContacts = () => {
+    const { contacts, filter } = this.state;
+    const normalizedFilter = filter.toLowerCase();
+    return contacts.filter(contact =>
+      contact.name.toLowerCase().includes(normalizedFilter)
+    );
+  };
 
   render() {
-    const { contacts } = this.state;
+    const { filter } = this.state;
+    // const normalizedFilter = filter.toLowerCase();
+    // const visibleContacts = contacts.filter(contact =>
+    //   contact.name.toLowerCase().includes(normalizedFilter)
+    // );
+
+    const visibleContacts = this.getVisibleContacts();
+
     return (
       <div
         style={{
@@ -43,11 +62,11 @@ class App extends Component {
         }}
       >
         <Section title={'Phonebook'}>
-          <FormPhonbook onSubmitProp={this.formSubmitHandler} />
+          <FormPhonbook onSubmitProp={this.addContact} />
         </Section>
         <Section title={'Contacts'}>
-          <Filter filter={this.state.filter} changeFilter={ this.handleChangeFilter } />
-          <ContactsList contacts={contacts} />
+          <Filter filter={filter} changeFilter={this.handleChangeFilter} />
+          <ContactsList contacts={visibleContacts} />
         </Section>
       </div>
     );
