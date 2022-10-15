@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import {ContactForm} from './ContactForm/ContactForm';
+import { ContactForm } from './ContactForm/ContactForm';
 import { Section } from './Section/Section';
 import { ContactsList } from './Contacts/ContactsList';
 import { Filter } from './Filter/Filter';
@@ -17,9 +17,14 @@ class App extends Component {
 
   addContact = data => {
     console.log(data);
-    this.setState(prevState => ({
-      contacts: [data, ...prevState.contacts],
-    }));
+
+    this.state.contacts.find(
+      contact => data.name.toLowerCase() === contact.name.toLocaleLowerCase()
+    )
+      ? alert(`${data.name} is already in contacts`)
+      : this.setState(prevState => ({
+          contacts: [data, ...prevState.contacts],
+        }));
   };
 
   // deleteContact = (contactId) => {
