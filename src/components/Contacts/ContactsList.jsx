@@ -1,12 +1,19 @@
-// import css from './ContactsList.module.css';
-import {ContactElement} from './ContactElement/ContactElement';
+import css from './ContactsList.module.css';
+import { ContactElement } from './ContactElement/ContactElement';
 
-export const ContactsList = ({ contacts }) => {
+export const ContactsList = ({ contacts, onDeleteContact }) => {
   return (
-    <ul>
+    <ul className={css.contact__list}>
       {contacts.map(({ id, name, number }) => {
+        // console.log(id);
         return (
-          <ContactElement key={id} name={ name } number={ number } />
+          <ContactElement
+            id={id}
+            key={id}
+            name={name}
+            number={number}
+            onDeleteBtn={onDeleteContact}
+          />
         );
       })}
     </ul>

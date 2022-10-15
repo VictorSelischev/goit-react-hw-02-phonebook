@@ -5,6 +5,7 @@
 .formAddBook__input {
     display: block;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .formAddBook__input:focus {
