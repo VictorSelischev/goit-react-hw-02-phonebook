@@ -1,6 +1,7 @@
 import css from './ContactForm.module.css';
 import { nanoid } from 'nanoid';
 import { Component } from 'react';
+import PropTypes from "prop-types";
 
 class ContactForm extends Component {
   state = {
@@ -66,6 +67,10 @@ class ContactForm extends Component {
 
 export {ContactForm};
 
+ContactForm.propTypes = {
+  onSubmitProp: PropTypes.func.isRequired,
+}
+  
 // export const FormPhonbook = ({ handleSubmit, handleChange, name }) => {
 //   return (
 //     <form className={css.formAddBook} onSubmit={handleSubmit}>

@@ -1,4 +1,5 @@
 import css from './ContactElement.module.css';
+import PropTypes from 'prop-types';
 
 export const ContactElement = ({ id, name, number, onDeleteBtn }) => {
   // console.log(id);
@@ -13,3 +14,10 @@ export const ContactElement = ({ id, name, number, onDeleteBtn }) => {
     </li>
   );
 };
+
+ContactElement.propTypes = {
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  onDeleteBtn: PropTypes.func.isRequired,
+}
