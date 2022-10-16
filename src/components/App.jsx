@@ -16,7 +16,7 @@ class App extends Component {
   };
 
   addContact = data => {
-    console.log(data);
+    // console.log(data);
 
     this.state.contacts.find(
       contact => data.name.toLowerCase() === contact.name.toLocaleLowerCase()
@@ -28,14 +28,14 @@ class App extends Component {
   };
 
   deleteContact = contactId => {
-    console.log('Delete: ', contactId);
+    // console.log('Delete: ', contactId);
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== contactId),
     }));
   };
 
   handleChangeFilter = evt => {
-    console.log(this.state.filter);
+    // console.log(this.state.filter);
     this.setState({ filter: evt.target.value });
   };
 
